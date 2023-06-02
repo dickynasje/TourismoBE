@@ -49,7 +49,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/2', (req, res) => {
-  res.send('Hello ini TourismoBE API TEST ROUTE')
+  res.send('Hello ini TourismoBE API TEST ROUTES')
 })
 // Middleware to verify Firebase ID token
 const verifyToken = (req, res, next) => {
