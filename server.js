@@ -47,6 +47,10 @@ app.post('/api/login', (req, res) => {
 app.get('/', (req, res) => {
   res.send('Hello ini TourismoBE API')
 })
+
+app.get('/2', (req, res) => {
+  res.send('Hello ini TourismoBE API TEST ROUTE')
+})
 // Middleware to verify Firebase ID token
 const verifyToken = (req, res, next) => {
     const idToken = req.headers.authorization;
