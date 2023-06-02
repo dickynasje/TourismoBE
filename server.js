@@ -49,7 +49,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/2', (req, res) => {
-  res.send('Hello ini TourismoBE API TEST ROUTES')
+  res.send('Hello ini TourismoBE HA HI HU HA')
 })
 // Middleware to verify Firebase ID token
 const verifyToken = (req, res, next) => {
@@ -78,7 +78,7 @@ app.get('/api/protected', verifyToken, (req, res) => {
 
 
 // Start the server
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

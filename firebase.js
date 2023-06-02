@@ -13,8 +13,6 @@ const serviceAccount = {
     "client_x509_cert_url": process.env.FIREBASE_CLIENT_X509_CERT_URL,
     "universe_domain": "googleapis.com"
 }
-
-console.log(serviceAccount)
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     // Your other Firebase configuration options go here
