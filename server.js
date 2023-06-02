@@ -42,6 +42,11 @@ app.post('/api/login', (req, res) => {
       res.status(401).json({ error: 'Login failed' });
     });
 });
+
+//hello world
+app.get('/', (req, res) => {
+  res.send('Hello ini TourismoBE API')
+})
 // Middleware to verify Firebase ID token
 const verifyToken = (req, res, next) => {
     const idToken = req.headers.authorization;
