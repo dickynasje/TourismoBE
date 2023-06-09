@@ -1,11 +1,30 @@
 const {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword} = require('firebase/auth');
 const express = require('express');
+const multer = require('multer');
 const bodyParser = require('body-parser');
 const admin = require('./firebase');
+const axios = require('axios');
 require('dotenv/config')
 const app = express();
 const auth = getAuth();
+const FormData = require('form-data');
+
+// Middleware to read POST data
+const multerMid = multer({
+  storage: multer.memoryStorage(),
+  limits: {
+    fileSize: 5 * 1024 * 1024,
+  },
+});
+
+app.use(multerMid.single("image"));
+
 app.use(bodyParser.json());
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
 // Registration route
 app.post('/api/register', async(req, res) => {
   const { email, password } = req.body;
@@ -17,9 +36,8 @@ app.post('/api/register', async(req, res) => {
     })
     .catch((error) => {
       const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorCode, errorMessage)
-      res.send(errorCode)
+      console.log(errorCode)
+      res.json({errorCode})
     });
   
 });
@@ -35,10 +53,31 @@ app.post('/api/login', async(req, res) => {
     })
     .catch((error) => {
       const errorCode = error.code;
-      const errorMessage = error.message;
-      res.send(errorCode)
+      console.log(errorCode)
+      res.json({errorCode})
     });
 
+});
+app.post('/api/predictimage', async(req, res) => {
+  const image = req.file;
+  if(image){
+    const formData = new FormData();
+    formData.append('image', image.buffer, image.originalname)
+    const imagePredict = await axios.post(`${process.env.IMAGEPREDICT}`, 
+    formData,
+    {
+      headers:formData.getHeaders(),
+    }
+    );
+    if(imagePredict.data){
+      return res.json(imagePredict.data)
+    }else{
+      return res.json({message: 'Failed to predict'})
+    }
+  }
+  else{
+    return res.json({message: 'No image found'})
+  }
 });
 
 //hello world
