@@ -2,6 +2,7 @@ const {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword} = re
 const express = require('express');
 const multer = require('multer');
 const bodyParser = require('body-parser');
+const {db} = require('./firebase');
 const admin = require('./firebase');
 const axios = require('axios');
 require('dotenv/config')
@@ -80,6 +81,19 @@ app.post('/api/predictimage', async(req, res) => {
   }
 });
 
+app.get('/api/getalltourist', async(req, res) => {
+  const snapshot = await db.collection('wisata').get();
+  const documents = [];
+  snapshot.forEach((doc) => {
+  const documentData = doc.data();
+  const documentJson = {
+    nama: doc.id,
+    ...documentData,
+  };
+  documents.push(documentJson);
+});
+  res.json(documents);
+});
 //hello world
 app.get('/', (req, res) => {
   res.send('Hello ini TourismoBE API')
