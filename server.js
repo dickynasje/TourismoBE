@@ -61,23 +61,27 @@ app.post('/api/login', async(req, res) => {
 });
 app.post('/api/predictimage', async(req, res) => {
   const image = req.file;
-  if(image){
-    const formData = new FormData();
-    formData.append('image', image.buffer, image.originalname)
-    const imagePredict = await axios.post(`${process.env.IMAGEPREDICT}`, 
-    formData,
-    {
-      headers:formData.getHeaders(),
+  try {
+    if(image){
+      const formData = new FormData();
+      formData.append('image', image.buffer, image.originalname)
+      const imagePredict = await axios.post(`${process.env.IMAGEPREDICT}`, 
+      formData,
+      {
+        headers:formData.getHeaders(),
+      }
+      );
+      if(imagePredict.data){
+        return res.json(imagePredict.data)
+      }else{
+        return res.json({message: 'Failed to predict'})
+      }
     }
-    );
-    if(imagePredict.data){
-      return res.json(imagePredict.data)
-    }else{
-      return res.json({message: 'Failed to predict'})
+    else{
+      return res.json({message: 'No image found'})
     }
-  }
-  else{
-    return res.json({message: 'No image found'})
+  } catch (error) {
+    console.log(error)
   }
 });
 
