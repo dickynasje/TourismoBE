@@ -1,0 +1,380 @@
+[
+  {
+    "departure": "Bali (DPS)",
+    "arrival": "Batam (BTH)",
+    "day": 2,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Bali (DPS)",
+    "arrival": "Batam (BTH)",
+    "day": 2,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Bali (DPS)",
+    "arrival": "Jakarta (CGK)",
+    "day": 4,
+    "airlines": "Batik Air",
+    "urlGambar": "https://i.imgur.com/BDrgKPy.jpg"
+  },
+  {
+    "departure": "Bali (DPS)",
+    "arrival": "Jakarta (CGK)",
+    "day": 4,
+    "airlines": "Batik Air",
+    "urlGambar": "https://i.imgur.com/BDrgKPy.jpg"
+  },
+  {
+    "departure": "Bali (DPS)",
+    "arrival": "Jakarta (CGK)",
+    "day": 4,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Bali (DPS)",
+    "arrival": "Jakarta (CGK)",
+    "day": 4,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Bali (DPS)",
+    "arrival": "Medan (KNO)",
+    "day": 0,
+    "airlines": "Batik Air",
+    "urlGambar": "https://i.imgur.com/BDrgKPy.jpg"
+  },
+  {
+    "departure": "Bali (DPS)",
+    "arrival": "Medan (KNO)",
+    "day": 0,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Bali (DPS)",
+    "arrival": "Yogyakarta (YIA)",
+    "day": 3,
+    "airlines": "Batik Air",
+    "urlGambar": "https://i.imgur.com/BDrgKPy.jpg"
+  },
+  {
+    "departure": "Bali (DPS)",
+    "arrival": "Yogyakarta (YIA)",
+    "day": 3,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Batam (BTH)",
+    "arrival": "Bali (DPS)",
+    "day": 4,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Batam (BTH)",
+    "arrival": "Jakarta (CGK)",
+    "day": 8,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Batam (BTH)",
+    "arrival": "Medan (KNO)",
+    "day": 2,
+    "airlines": "Batik Air",
+    "urlGambar": "https://i.imgur.com/BDrgKPy.jpg"
+  },
+  {
+    "departure": "Batam (BTH)",
+    "arrival": "Medan (KNO)",
+    "day": 2,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Batam (BTH)",
+    "arrival": "Yogyakarta (YIA)",
+    "day": 4,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Batam (BTH)",
+    "arrival": "Yogyakarta (YIA)",
+    "day": 4,
+    "airlines": "Batik Air",
+    "urlGambar": "https://i.imgur.com/BDrgKPy.jpg"
+  },
+  {
+    "departure": "Jakarta (CGK)",
+    "arrival": "Bali (DPS)",
+    "day": 4,
+    "airlines": "Batik Air",
+    "urlGambar": "https://i.imgur.com/BDrgKPy.jpg"
+  },
+  {
+    "departure": "Jakarta (CGK)",
+    "arrival": "Bali (DPS)",
+    "day": 4,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Jakarta (CGK)",
+    "arrival": "Batam (BTH)",
+    "day": 2,
+    "airlines": "Batik Air",
+    "urlGambar": "https://i.imgur.com/BDrgKPy.jpg"
+  },
+  {
+    "departure": "Jakarta (CGK)",
+    "arrival": "Batam (BTH)",
+    "day": 2,
+    "airlines": "Batik Air",
+    "urlGambar": "https://i.imgur.com/BDrgKPy.jpg"
+  },
+  {
+    "departure": "Jakarta (CGK)",
+    "arrival": "Batam (BTH)",
+    "day": 2,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Jakarta (CGK)",
+    "arrival": "Batam (BTH)",
+    "day": 2,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Jakarta (CGK)",
+    "arrival": "Medan (KNO)",
+    "day": 0,
+    "airlines": "Batik Air",
+    "urlGambar": "https://i.imgur.com/BDrgKPy.jpg"
+  },
+  {
+    "departure": "Jakarta (CGK)",
+    "arrival": "Medan (KNO)",
+    "day": 0,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Jakarta (CGK)",
+    "arrival": "Yogyakarta (YIA)",
+    "day": 4,
+    "airlines": "Batik Air",
+    "urlGambar": "https://i.imgur.com/BDrgKPy.jpg"
+  },
+  {
+    "departure": "Jakarta (CGK)",
+    "arrival": "Yogyakarta (YIA)",
+    "day": 4,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Medan (KNO)",
+    "arrival": "Bali (DPS)",
+    "day": 2,
+    "airlines": "Batik Air",
+    "urlGambar": "https://i.imgur.com/BDrgKPy.jpg"
+  },
+  {
+    "departure": "Medan (KNO)",
+    "arrival": "Bali (DPS)",
+    "day": 2,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Medan (KNO)",
+    "arrival": "Batam (BTH)",
+    "day": 1,
+    "airlines": "Batik Air",
+    "urlGambar": "https://i.imgur.com/BDrgKPy.jpg"
+  },
+  {
+    "departure": "Medan (KNO)",
+    "arrival": "Batam (BTH)",
+    "day": 1,
+    "airlines": "Batik Air",
+    "urlGambar": "https://i.imgur.com/BDrgKPy.jpg"
+  },
+  {
+    "departure": "Medan (KNO)",
+    "arrival": "Batam (BTH)",
+    "day": 1,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Medan (KNO)",
+    "arrival": "Batam (BTH)",
+    "day": 1,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Medan (KNO)",
+    "arrival": "Jakarta (CGK)",
+    "day": 1,
+    "airlines": "Batik Air",
+    "urlGambar": "https://i.imgur.com/BDrgKPy.jpg"
+  },
+  {
+    "departure": "Medan (KNO)",
+    "arrival": "Jakarta (CGK)",
+    "day": 1,
+    "airlines": "Batik Air",
+    "urlGambar": "https://i.imgur.com/BDrgKPy.jpg"
+  },
+  {
+    "departure": "Medan (KNO)",
+    "arrival": "Jakarta (CGK)",
+    "day": 1,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Medan (KNO)",
+    "arrival": "Jakarta (CGK)",
+    "day": 1,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Medan (KNO)",
+    "arrival": "Yogyakarta (YIA)",
+    "day": 1,
+    "airlines": "Batik Air",
+    "urlGambar": "https://i.imgur.com/BDrgKPy.jpg"
+  },
+  {
+    "departure": "Medan (KNO)",
+    "arrival": "Yogyakarta (YIA)",
+    "day": 1,
+    "airlines": "Batik Air",
+    "urlGambar": "https://i.imgur.com/BDrgKPy.jpg"
+  },
+  {
+    "departure": "Medan (KNO)",
+    "arrival": "Yogyakarta (YIA)",
+    "day": 1,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Medan (KNO)",
+    "arrival": "Yogyakarta (YIA)",
+    "day": 1,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Yogyakarta (YIA)",
+    "arrival": "Bali (DPS)",
+    "day": 4,
+    "airlines": "Batik Air",
+    "urlGambar": "https://i.imgur.com/BDrgKPy.jpg"
+  },
+  {
+    "departure": "Yogyakarta (YIA)",
+    "arrival": "Bali (DPS)",
+    "day": 4,
+    "airlines": "Batik Air",
+    "urlGambar": "https://i.imgur.com/BDrgKPy.jpg"
+  },
+  {
+    "departure": "Yogyakarta (YIA)",
+    "arrival": "Bali (DPS)",
+    "day": 4,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Yogyakarta (YIA)",
+    "arrival": "Bali (DPS)",
+    "day": 4,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Yogyakarta (YIA)",
+    "arrival": "Batam (BTH)",
+    "day": 8,
+    "airlines": "Batik Air",
+    "urlGambar": "https://i.imgur.com/BDrgKPy.jpg"
+  },
+  {
+    "departure": "Yogyakarta (YIA)",
+    "arrival": "Batam (BTH)",
+    "day": 8,
+    "airlines": "Batik Air",
+    "urlGambar": "https://i.imgur.com/BDrgKPy.jpg"
+  },
+  {
+    "departure": "Yogyakarta (YIA)",
+    "arrival": "Batam (BTH)",
+    "day": 8,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Yogyakarta (YIA)",
+    "arrival": "Batam (BTH)",
+    "day": 8,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Yogyakarta (YIA)",
+    "arrival": "Jakarta (CGK)",
+    "day": 2,
+    "airlines": "Batik Air",
+    "urlGambar": "https://i.imgur.com/BDrgKPy.jpg"
+  },
+  {
+    "departure": "Yogyakarta (YIA)",
+    "arrival": "Jakarta (CGK)",
+    "day": 2,
+    "airlines": "Batik Air",
+    "urlGambar": "https://i.imgur.com/BDrgKPy.jpg"
+  },
+  {
+    "departure": "Yogyakarta (YIA)",
+    "arrival": "Jakarta (CGK)",
+    "day": 2,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Yogyakarta (YIA)",
+    "arrival": "Jakarta (CGK)",
+    "day": 2,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  },
+  {
+    "departure": "Yogyakarta (YIA)",
+    "arrival": "Medan (KNO)",
+    "day": 7,
+    "airlines": "Batik Air",
+    "urlGambar": "https://i.imgur.com/BDrgKPy.jpg"
+  },
+  {
+    "departure": "Yogyakarta (YIA)",
+    "arrival": "Medan (KNO)",
+    "day": 7,
+    "airlines": "Garuda",
+    "urlGambar": "https://i.imgur.com/OmVJmDg.png"
+  }
+]

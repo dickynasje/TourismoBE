@@ -9,6 +9,16 @@ require('dotenv/config')
 const app = express();
 const auth = getAuth();
 const FormData = require('form-data');
+const calculateDayDifference = require('./util');
+//Data Pesawat
+const bisnis = require('./jsons/bisnismodified.json');
+const ekonomi = require('./jsons/ekonomimodified.json');
+
+function filterDataByParameters(data, departure, arrival) {
+  return data.filter((item) => {
+    return item.departure === departure && item.arrival === arrival;
+  });
+}
 
 // Middleware to read POST data
 const multerMid = multer({
@@ -85,6 +95,7 @@ app.post('/api/predictimage', async(req, res) => {
   }
 });
 
+//all tourist spot
 app.get('/api/getalltourist', async(req, res) => {
   const snapshot = await db.collection('wisata').get();
   const documents = [];
@@ -98,6 +109,80 @@ app.get('/api/getalltourist', async(req, res) => {
 });
   res.json(documents);
 });
+
+
+//specific tourist spot
+app.post('/api/specifictourist', async(req, res) => {
+  const {nama} = req.body;
+  const snapshot = await db.collection('wisata').doc(nama).get();
+  const documentData = snapshot.data();
+  const documentJson = {
+    nama: snapshot.id,
+    ...documentData,
+  };
+  res.json(documentJson);
+});
+
+//getPesawat
+app.get('/api/getallmaskapai', async(req, res) => {
+  const snapshot = await db.collection('maskapai').get();
+  const documents = [];
+  snapshot.forEach((doc) => {
+  const documentData = doc.data();
+  const documentJson = {
+    nama: doc.id,
+    ...documentData,
+  };
+  documents.push(documentJson);
+});
+  res.json(documents);
+});
+
+//API Data tiket pesawat
+app.post('/api/gettiket', async(req, res) => {
+  const {departure, arrival, tipe, date} = req.body;
+  //handle to reject if not in db string
+  try {
+    if(departure == "" || arrival == "" || date == ""){
+      return res.json({message: 'Please Fill the form correctly'})
+    }
+    else if(departure == arrival){
+      return res.json({message: 'Departure and Arrival cannot be the same'})
+    }
+    else{
+      const requestDate = new Date(date);
+      let filteredData;
+      if (tipe === 'ekonomi') {
+        filteredData = filterDataByParameters(ekonomi, departure, arrival);
+      } else if (tipe === 'bisnis') {
+        filteredData = filterDataByParameters(bisnis, departure, arrival);
+      } else {
+        res.status(400).json({ error: 'Invalid tipe value' });
+        return;
+      }
+      // Check if filteredData is empty
+      if (filteredData.length === 0) {
+        res.json({ message: 'No data available for the specified parameters' });
+      } else {
+        const requestDate = new Date(date);
+        let dayResult = null;
+        // Extract the common 'day' value from filteredData
+        dayResult = filteredData[0].day;
+        const newDate = new Date(requestDate.getTime() - dayResult * 24 * 60 * 60 * 1000);
+        // Update the 'day' key to 'date' with the newDate value
+        filteredData = filteredData.map((item) => ({
+          ...item,
+          date: newDate,
+        }));
+        res.json({maskapai: filteredData, tanggalBeli: newDate.toISOString().split('T')[0]});
+      }
+    } 
+
+  } catch (error) {
+    console.log(error)
+  }
+});
+
 //hello world
 app.get('/', (req, res) => {
   res.send('Hello ini TourismoBE API')
