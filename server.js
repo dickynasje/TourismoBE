@@ -140,7 +140,7 @@ app.get('/api/getallmaskapai', async(req, res) => {
 
 //API Data tiket pesawat
 app.post('/api/gettiket', async(req, res) => {
-  const {departure, arrival, tipe, date} = req.body;
+  const {departure, arrival, date} = req.body;
   //handle to reject if not in db string
   try {
     if(departure == "" || arrival == "" || date == ""){
@@ -150,31 +150,32 @@ app.post('/api/gettiket', async(req, res) => {
       return res.json({message: 'Departure and Arrival cannot be the same'})
     }
     else{
-      const requestDate = new Date(date);
-      let filteredData;
-      if (tipe === 'ekonomi') {
-        filteredData = filterDataByParameters(ekonomi, departure, arrival);
-      } else if (tipe === 'bisnis') {
-        filteredData = filterDataByParameters(bisnis, departure, arrival);
-      } else {
-        res.status(400).json({ error: 'Invalid tipe value' });
-        return;
-      }
+      let bisnisFilteredData;
+      let ekonomiFilteredData;
+      ekonomiFilteredData = filterDataByParameters(ekonomi, departure, arrival);
+      bisnisFilteredData = filterDataByParameters(bisnis, departure, arrival);
+
       // Check if filteredData is empty
-      if (filteredData.length === 0) {
+      if (ekonomiFilteredData.length === 0 && bisnisFilteredData.length === 0) {
         res.json({ message: 'No data available for the specified parameters' });
       } else {
         const requestDate = new Date(date);
-        let dayResult = null;
+        let dayResultBisnis = null;
+        let dayResultEkonomi = null;
         // Extract the common 'day' value from filteredData
-        dayResult = filteredData[0].day;
-        const newDate = new Date(requestDate.getTime() - dayResult * 24 * 60 * 60 * 1000);
+        dayResultEkonomi = ekonomiFilteredData[0].day;
+        dayResultBisnis = bisnisFilteredData[0].day;
+        const newDateEkonomi = new Date(requestDate.getTime() - dayResultEkonomi * 24 * 60 * 60 * 1000);
+        const newDateBisnis = new Date(requestDate.getTime() - dayResultBisnis * 24 * 60 * 60 * 1000);
         // Update the 'day' key to 'date' with the newDate value
-        filteredData = filteredData.map((item) => ({
-          ...item,
-          date: newDate,
-        }));
-        res.json({maskapai: filteredData, tanggalBeli: newDate.toISOString().split('T')[0]});
+        // filteredData = filteredData.map((item) => ({
+        //   ...item,
+        //   date: newDate,
+        // }));
+        res.json({maskapai: {bisnis: bisnisFilteredData, ekonomi: ekonomiFilteredData}, 
+          tanggalBeliEkonomi: newDateEkonomi.toISOString().split('T')[0],
+          tanggalBeliBisnis: newDateBisnis.toISOString().split('T')[0]
+        });
       }
     } 
 
