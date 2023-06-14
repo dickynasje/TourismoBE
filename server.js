@@ -3,7 +3,7 @@ const express = require('express');
 const multer = require('multer');
 const bodyParser = require('body-parser');
 const {db} = require('./firebase');
-const admin = require('./firebase');
+const {admin} = require('./firebase');
 const axios = require('axios');
 require('dotenv/config')
 const app = express();
@@ -27,6 +27,24 @@ const multerMid = multer({
     fileSize: 5 * 1024 * 1024,
   },
 });
+//firebase auth middleware
+const firebaseAuthMiddleware = async (req, res, next) => {
+  const { authorization } = req.headers;
+  if (!authorization || !authorization.startsWith('Bearer ')) {
+    return res.status(403).json({ error: 'Unauthorized' });
+  }
+  const split = authorization.split('Bearer ');
+  const token = split[1];
+  try {
+    const decodedToken = await admin.auth().verifyIdToken(token);
+    const { uid, email } = decodedToken;
+    req.user = { uid, email };
+    return next();
+  } catch (err) {
+    console.error(`${err.code} -  ${err.message}`);
+    return res.status(403).json({ error: 'Unauthorized' });
+  }
+};
 
 app.use(multerMid.single("image"));
 
@@ -36,6 +54,12 @@ app.use(
     extended: true,
   })
 );
+//middleware auth test
+app.get('/api/test', firebaseAuthMiddleware, async(req, res) => {
+  const {uid, email} = req.user;
+  res.json({uid, email})
+})
+
 // Registration route
 app.post('/api/register', async(req, res) => {
   const { email, password } = req.body;
@@ -69,7 +93,7 @@ app.post('/api/login', async(req, res) => {
     });
 
 });
-app.post('/api/predictimage', async(req, res) => {
+app.post('/api/predictimage', firebaseAuthMiddleware, async(req, res) => {
   const image = req.file;
   try {
     if(image){
@@ -96,7 +120,7 @@ app.post('/api/predictimage', async(req, res) => {
 });
 
 //all tourist spot
-app.get('/api/getalltourist', async(req, res) => {
+app.get('/api/getalltourist', firebaseAuthMiddleware, async(req, res) => {
   const snapshot = await db.collection('wisata').get();
   const documents = [];
   snapshot.forEach((doc) => {
@@ -112,7 +136,7 @@ app.get('/api/getalltourist', async(req, res) => {
 
 
 //specific tourist spot
-app.post('/api/specifictourist', async(req, res) => {
+app.post('/api/specifictourist', firebaseAuthMiddleware, async(req, res) => {
   const {nama} = req.body;
   const snapshot = await db.collection('wisata').doc(nama).get();
   const documentData = snapshot.data();
@@ -124,7 +148,7 @@ app.post('/api/specifictourist', async(req, res) => {
 });
 
 //getPesawat
-app.get('/api/getallmaskapai', async(req, res) => {
+app.get('/api/getallmaskapai', firebaseAuthMiddleware, async(req, res) => {
   const snapshot = await db.collection('maskapai').get();
   const documents = [];
   snapshot.forEach((doc) => {
@@ -139,7 +163,7 @@ app.get('/api/getallmaskapai', async(req, res) => {
 });
 
 //API Data tiket pesawat
-app.post('/api/gettiket', async(req, res) => {
+app.post('/api/gettiket', firebaseAuthMiddleware, async(req, res) => {
   const {departure, arrival, date} = req.body;
   //handle to reject if not in db string
   try {
