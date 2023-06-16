@@ -15,21 +15,44 @@ API Documentation :
 
 - Authentications
   <pre>POST /api/login</pre>
+  <pre>body:{
+    "email": "insert email here",
+    "password": "insert password here"
+  } </pre>
 
 - Users
   <pre>POST /api/register</pre>
+  <pre>body:{
+    "email": "insert email here",
+    "password": "insert password here"
+  } </pre>
 
 - Predictions
   <pre>POST /api/predictimage</pre>
+  <pre>
+  make sure to use form-data
+  body:{
+    "image": "insert image file here"
+  } </pre>
 
 - Tourist
   <pre>GET   /api/getalltourist</pre>
   <pre>POST  /api/specifictourist</pre>
+  <pre>body:{
+    "nama": "insert here"
+  } </pre>
 
 
 - Maskapai
   <pre>GET   /api/getallmaskapai</pre>
   <pre>POST  /api/gettiket</pre>
+  <pre>
+  body: {
+    "departure":"",
+    "arrival": "",
+    "date": ""
+    }
+  </pre>
 
 
 ### Dependency
